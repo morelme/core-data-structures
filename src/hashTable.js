@@ -2,7 +2,7 @@ export default class HashTable {
   constructor() {
     this.storage = []
     this._length = 0
-    this.max = 1000
+    this.max = 10
   }
 
   put = (key, value) => {
@@ -30,6 +30,7 @@ export default class HashTable {
     for (let i = 0; i < this.max; i++){
       if(this.storage[i] !== undefined){
         //unhash key - create unhash function?
+        //passing it 1 as a placeholder to avoid compilation error
         passedInFunction(/*unhashed key*/ 1, this.storage[i])
       }
     }
@@ -37,15 +38,9 @@ export default class HashTable {
 
   remove = (key) => {
     const hashIndex = this.hash(key, this.max)
-    const bucket = this.storage[hashIndex]
-    for(let i = 0; i < bucket.length; i ++){
-      const tuple = bucket[i]
-      if(tuple[0] === key){
-        bucket.splice(i, 1)
-        this._length -= 1
-      }
-      return tuple[1]
-    }
+    const value = this.storage[hashIndex]
+    this.storage.splice(hashIndex, 1)
+    this._length -= 1
   }
 
   size = () => {

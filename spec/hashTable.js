@@ -52,17 +52,18 @@ describe('HashTable', () => {
     })
   })
 
-  context('iterate()', () => {
+  context.only('iterate()', () => {
     it('takes a callback function and passes it each key and value in sequence', () => {
       const myHashTable = new HashTable()
-      const print= (key, value) => {
+      const print = (key, value) => {
         console.log("key: ", key)
         console.log("value: ", value)
       }
 
       myHashTable.put("name", "Zanzibar")
       myHashTable.put("food", "bagels")
-      expect(myHashTable.iterate(print)).to.equal(true)
+      //Not sure how to test this so we set up a test to make it fail on purpose
+      expect(myHashTable.iterate(print(key, value))).to.equal(true)
     })
   })
   context('remove()', () => {
@@ -76,6 +77,15 @@ describe('HashTable', () => {
     })
   })
 
+  context('size()', () => {
+    it('returns the number of key-value pairs in the hash table', () => {
+      const myHashTable = new HashTable()
+
+      myHashTable.put("name", "Zanzibar")
+      myHashTable.put("food", "bagels")
+      expect(myHashTable.size()).to.equal(2)
+    })
+  })
 
 
   })
