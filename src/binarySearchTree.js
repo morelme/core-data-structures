@@ -89,9 +89,7 @@ export default class BinarySearchTree {
     return null
   }
 
-
   count = () => {
     return this.length
   }
-
 }

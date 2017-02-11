@@ -4,5 +4,4 @@ export default class BinaryNode {
     this._rightChild = null
     this._leftChild = null
   }
-
 }

@@ -82,6 +82,7 @@ describe('BinarySearchTree', () => {
 
   context('traverse()', () => {
     //What is this supposed to do/how do we test it?
+    
   })
 
   context('count()', () => {
