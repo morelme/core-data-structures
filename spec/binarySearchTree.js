@@ -36,7 +36,6 @@ describe('BinarySearchTree', () => {
 
           myBST.insert(4)
           myBST.insert(6)
-          console.log("myBST", myBST)
           expect(myBST.root._rightChild._value).to.be.equal(6)
       })
     })
@@ -85,7 +84,7 @@ describe('BinarySearchTree', () => {
     //What is this supposed to do/how do we test it?
   })
 
-  context.only('count()', () => {
+  context('count()', () => {
     it('return the number of nodes in the tree', () => {
           const myBST = new BinarySearchTree()
 
