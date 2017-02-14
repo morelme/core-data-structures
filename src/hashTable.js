@@ -9,21 +9,18 @@ export default class HashTable {
     if(typeof(key) === "undefined"){
       throw("Cannot insert with undefined key!")
     }
-    const hashIndex = this.hash(key, this.max)
+    const hashIndex = this.hash(key)
     this.storage[hashIndex] = value
     this._length += 1
   }
 
   get = (key) => {
-    const hashIndex = this.hash(key, this.max)
+    const hashIndex = this.hash(key)
     return this.storage[hashIndex]
   }
 
   contains = (key) => {
-    if(this.get(key)){
-      return true
-    }
-    return false
+    return this.get( key ) !== undefined
   }
 
   iterate = passedInFunction => {
@@ -37,7 +34,7 @@ export default class HashTable {
   }
 
   remove = (key) => {
-    const hashIndex = this.hash(key, this.max)
+    const hashIndex = this.hash(key)
     const value = this.storage[hashIndex]
     this.storage.splice(hashIndex, 1)
     this._length -= 1
@@ -47,14 +44,14 @@ export default class HashTable {
     return this._length
   }
 
-  hash = (str, max) => {
+  hash = (str) => {
     let hash = 0
     for (let i = 0; i < str.length; i++){
       hash = (hash << 5) - hash
       hash = hash + str.charCodeAt(i)
       hash = hash & hash
     }
-    return Math.abs(hash % max)
-  }
+    return Math.abs(hash % this.max)
+    }
 
   }

@@ -52,7 +52,7 @@ describe('HashTable', () => {
     })
   })
 
-  context.only('iterate()', () => {
+  context('iterate()', () => {
     it('takes a callback function and passes it each key and value in sequence', () => {
       const myHashTable = new HashTable()
       const print = (key, value) => {
