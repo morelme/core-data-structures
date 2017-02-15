@@ -6,7 +6,6 @@ import Node from '../src/node'
 chai.use(chaiChange)
 
 describe('Queue', () => {
-  'use strict'
   let myQueue
   beforeEach(() => {
     myQueue = new Queue()

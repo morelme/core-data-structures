@@ -5,7 +5,6 @@ import Set from '../src/set'
 chai.use(chaiChange)
 
 describe('Set', () => {
-  'use strict'
   let mySet
   beforeEach(() => {
     mySet = new Set()

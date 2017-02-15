@@ -6,7 +6,6 @@ import Node from '../src/node'
 chai.use(chaiChange)
 
 describe('DoublyLinkedList', () => {
-  'use strict'
   let myDLL
   beforeEach(() => {
     myDLL = new DoublyLinkedList()

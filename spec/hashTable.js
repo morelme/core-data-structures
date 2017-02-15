@@ -5,7 +5,6 @@ import HashTable from '../src/hashTable'
 chai.use(chaiChange)
 
 describe('HashTable', () => {
-  'use strict'
   let myHashTable
   beforeEach(() => {
     myHashTable = new HashTable()

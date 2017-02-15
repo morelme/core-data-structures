@@ -6,7 +6,6 @@ import Node from '../src/node'
 chai.use(chaiChange)
 
 describe('LinkedList', () => {
-  'use strict'
   let myLList
   beforeEach(() => {
     myLList = new LinkedList()

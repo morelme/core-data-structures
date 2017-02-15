@@ -5,7 +5,6 @@ import PriorityQueue from '../src/priorityQueue'
 chai.use(chaiChange)
 
 describe('PriorityQueue', () => {
-  'use strict'
   let myPQueue
   beforeEach(() => {
     myPQueue = new PriorityQueue()
@@ -17,7 +16,7 @@ describe('PriorityQueue', () => {
 
   context('enqueue()', () => {
     it('adds an element to the back of the queue.', () => {
-    
+
       myPQueue.enqueue('bar', 10)
       expect(() => myPQueue.enqueue('foo', 100))
         .to.alter(() => myPQueue.length(), { from: 1, to: 2 })

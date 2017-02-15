@@ -5,7 +5,6 @@ import Stack from '../src/stack'
 chai.use(chaiChange)
 
 describe('Stack', () => {
-  'use strict'
   let myStack
   beforeEach(() => {
     myStack = new Stack()

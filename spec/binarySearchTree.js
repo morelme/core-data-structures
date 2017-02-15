@@ -6,7 +6,6 @@ import BinaryNode from '../src/binarynode'
 chai.use(chaiChange)
 
 describe('BinarySearchTree', () => {
-  'use strict'
   let myBST
   beforeEach(() => {
     myBST = new BinarySearchTree()

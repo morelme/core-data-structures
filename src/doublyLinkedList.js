@@ -8,13 +8,11 @@ export default class DoublyLinkedList {
   }
 
   getHeadNode = () => {
-    let node = this.head
-    return node
+    return this.head
   }
 
   getTailNode = () => {
-    let node = this.tail
-    return node
+    return this.tail
   }
 
   contains = (value) => {
