@@ -6,6 +6,10 @@ chai.use(chaiChange)
 
 describe('Set', () => {
   'use strict'
+  let mySet
+  beforeEach(() => {
+    mySet = new Set()
+  })
 
   it('exists', () => {
     expect(Set).to.be.a('function')
@@ -14,7 +18,6 @@ describe('Set', () => {
   context('add()', () => {
     context('when the element is not already in the set', () => {
       it('adds element to set', () => {
-        const mySet = new Set()
 
         expect(() => mySet.add('foo'))
           .to.alter(() => mySet.size(), {from: 0, to: 1 })
@@ -23,7 +26,6 @@ describe('Set', () => {
     })
     context('when the element is already in the set', () => {
       it('throws error', () => {
-        const mySet = new Set()
 
         mySet.add('foo')
         expect(() => mySet.add('foo')).to.throw(Error)
@@ -35,7 +37,6 @@ describe('Set', () => {
   context('isEmpty()', () => {
     context('when set is not empty', () => {
       it('returns false', () => {
-        const mySet = new Set()
 
         mySet.add('anything')
         expect(mySet.isEmpty()).to.equal(false)
@@ -43,7 +44,6 @@ describe('Set', () => {
     })
     context('when set is empty', () => {
       it('returns true', () => {
-        const mySet = new Set()
 
         expect(mySet.isEmpty()).to.equal(true)
       })
@@ -53,7 +53,6 @@ describe('Set', () => {
   context('contains()', () => {
     context('when the element already exists in the set', () => {
       it('returns true', () => {
-        const mySet = new Set()
 
         mySet.add('anything')
         expect(mySet.contains('anything')).to.equal(true)
@@ -61,7 +60,6 @@ describe('Set', () => {
     })
     context('when element does not exist in the set', () => {
       it('returns false', () => {
-        const mySet = new Set()
 
         mySet.add('anything')
         expect(mySet.contains('any')).to.equal(false)
@@ -72,7 +70,6 @@ describe('Set', () => {
   context('remove()', () => {
     context('when the element exists in the set', () => {
       it('removes the element', () => {
-        const mySet = new Set()
 
         mySet.add('anything')
         expect(() => mySet.remove('anything'))
@@ -84,7 +81,6 @@ describe('Set', () => {
 
   context('forEach()', () => {
     it('takes a callback function and passes it each element in sequence.', () => {
-      const mySet = new Set()
 
       const addMomElement = element => {
         mySet.add(element + 'mom')
@@ -101,7 +97,6 @@ describe('Set', () => {
 
   context('size()', () => {
     it('returns number of elements in a set', () => {
-      const mySet = new Set()
 
       mySet.add('anything')
       mySet.add('any')
@@ -111,7 +106,6 @@ describe('Set', () => {
 
   context('union()', () => {
     it('unions the set with another set and returns the resulting set', () => {
-      const mySet = new Set()
       const secondSet = new Set()
 
       mySet.add('anything')
@@ -124,7 +118,6 @@ describe('Set', () => {
 
   context('intersect()', () => {
     it('intersects the set with another set and returns the resulting set', () => {
-      const mySet = new Set()
       const secondSet = new Set()
 
       mySet.add('anything')
@@ -137,7 +130,6 @@ describe('Set', () => {
 
   context('difference()', () => {
     it('returns a set that contains the elements found in the set but not in otherSet.', () => {
-      const mySet = new Set()
       const secondSet = new Set()
 
       mySet.add('anything')
@@ -153,7 +145,6 @@ describe('Set', () => {
 context('isSubset()', () => {
   context('when the set is a subset of otherSet', () => {
     it('returns true', () => {
-      const mySet = new Set()
       const secondSet = new Set()
 
       mySet.add('blue')
@@ -168,7 +159,6 @@ context('isSubset()', () => {
 
   context('when the set is not a subset of otherSet', () => {
     it('returns false', () => {
-      const mySet = new Set()
       const secondSet = new Set()
 
       mySet.add('blue')
@@ -183,7 +173,6 @@ context('isSubset()', () => {
 
 context('clone()', () => {
   it('returns a cloned set.', () => {
-    const mySet = new Set()
     const clonedSet = mySet.clone()
 
     mySet.add('anything')

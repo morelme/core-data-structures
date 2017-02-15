@@ -7,6 +7,10 @@ chai.use(chaiChange)
 
 describe('LinkedList', () => {
   'use strict'
+  let myLList
+  beforeEach(() => {
+    myLList = new LinkedList()
+  })
 
   it('exists', () => {
     expect(LinkedList).to.be.a('function')
@@ -14,7 +18,6 @@ describe('LinkedList', () => {
 
   context('getHeadNode()', () => {
     it('returns the first node in the list', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('bar')
@@ -24,7 +27,6 @@ describe('LinkedList', () => {
 
   context('getTailNode()', () => {
     it('returns the last node in the list', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('bar')
@@ -36,7 +38,7 @@ describe('LinkedList', () => {
   context('contains()', () => {
     context('when the element is in the list', () => {
       it('returns true', () => {
-          const myLList = new LinkedList()
+
 
           myLList.insert('foo')
           myLList.insert('bar')
@@ -45,7 +47,7 @@ describe('LinkedList', () => {
     })
     context('when the element is not in the list', () => {
       it('returns false', () => {
-          const myLList = new LinkedList()
+
 
           myLList.insert('foo')
           myLList.insert('bar')
@@ -57,7 +59,7 @@ describe('LinkedList', () => {
   context('find()', () => {
     context('when the element is in the list', () => {
       it('returns the element', () => {
-          const myLList = new LinkedList()
+
 
           myLList.insert('foo')
           myLList.insert('bar')
@@ -66,7 +68,7 @@ describe('LinkedList', () => {
     })
     context('when the element is not in the list', () => {
       it('returns -1', () => {
-          const myLList = new LinkedList()
+
 
           myLList.insert('foo')
           myLList.insert('bar')
@@ -77,7 +79,6 @@ describe('LinkedList', () => {
 
   context('insert()', () => {
     it('inserts node to the tail of the list', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         expect(myLList.contains('foo')).to.equal(true)
@@ -87,7 +88,6 @@ describe('LinkedList', () => {
 
   context('insertFirst()', () => {
     it('inserts node to the head of the list', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('bar')
@@ -98,7 +98,6 @@ describe('LinkedList', () => {
 
   context('insertBefore("bananas", "apples")', () => {
     it('Inserts a node (with data "apples") before the first node containing "bananas"', () => {
-        const myLList = new LinkedList()
 
 
 
@@ -111,7 +110,6 @@ describe('LinkedList', () => {
 
   context('insertAfter("apples", "bananas")', () => {
     it('Inserts a node (with data "bananas") after the first node containing "apples"', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('apples')
@@ -123,7 +121,6 @@ describe('LinkedList', () => {
 
   context('remove()', () => {
     it('Removes the tail node from the list', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('apples')
@@ -135,7 +132,6 @@ describe('LinkedList', () => {
 
   context('removeFirst()', () => {
     it('removes the head node from the list', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('apples')
@@ -148,7 +144,7 @@ describe('LinkedList', () => {
   context('isEmpty()', () => {
     context('when the list is not empty', () =>{
       it('returns false', () => {
-          const myLList = new LinkedList()
+
 
           myLList.insert('foo')
           expect(myLList.isEmpty()).to.equal(false)
@@ -157,7 +153,7 @@ describe('LinkedList', () => {
 
     context('when the list is empty', () =>{
       it('returns true', () => {
-          const myLList = new LinkedList()
+
 
           expect(myLList.isEmpty()).to.equal(true)
       })
@@ -166,7 +162,6 @@ describe('LinkedList', () => {
 
   context('size()', () => {
     it('returns the size of the list (number of nodes)', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('apples')
@@ -177,7 +172,6 @@ describe('LinkedList', () => {
 
   context('clear()', () => {
     it('clears the list of all nodes/data', () => {
-        const myLList = new LinkedList()
 
         myLList.insert('foo')
         myLList.insert('apples')

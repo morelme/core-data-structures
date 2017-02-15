@@ -6,6 +6,10 @@ chai.use(chaiChange)
 
 describe('HashTable', () => {
   'use strict'
+  let myHashTable
+  beforeEach(() => {
+    myHashTable = new HashTable()
+  })
 
   it('exists', () => {
     expect(HashTable).to.be.a('function')
@@ -13,7 +17,6 @@ describe('HashTable', () => {
 
   context('put()', () => {
     it('adds key-value pair to the hash table', () => {
-      const myHashTable = new HashTable()
 
       myHashTable.put("name", "Zanzibar")
       expect(myHashTable.get("name"))
@@ -23,7 +26,6 @@ describe('HashTable', () => {
 
   context('get()', () => {
     it('returns the data associated with key', () => {
-      const myHashTable = new HashTable()
 
       myHashTable.put("name", "Zanzibar")
       expect(myHashTable.get("name"))
@@ -34,7 +36,7 @@ describe('HashTable', () => {
   context('contains()', () => {
     context('when the hashtable contains the key', () =>{
       it('returns true', () => {
-        const myHashTable = new HashTable()
+
 
         myHashTable.put("name", "Zanzibar")
         expect(myHashTable.contains("name"))
@@ -43,7 +45,7 @@ describe('HashTable', () => {
     })
     context('when the hashtable does not contain the key', () =>{
       it('returns false', () => {
-        const myHashTable = new HashTable()
+
 
         myHashTable.put("name", "Zanzibar")
         expect(myHashTable.contains("rainbows"))
@@ -54,7 +56,6 @@ describe('HashTable', () => {
 
   context('iterate()', () => {
     it('takes a callback function and passes it each key and value in sequence', () => {
-      const myHashTable = new HashTable()
       const print = (key, value) => {
         console.log("key: ", key)
         console.log("value: ", value)
@@ -68,7 +69,6 @@ describe('HashTable', () => {
   })
   context('remove()', () => {
     it('removes a key-value pair by key', () => {
-      const myHashTable = new HashTable()
 
       myHashTable.put("name", "Zanzibar")
       myHashTable.put("food", "bagels")
@@ -79,7 +79,6 @@ describe('HashTable', () => {
 
   context('size()', () => {
     it('returns the number of key-value pairs in the hash table', () => {
-      const myHashTable = new HashTable()
 
       myHashTable.put("name", "Zanzibar")
       myHashTable.put("food", "bagels")
