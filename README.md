@@ -6,9 +6,14 @@ Base repository for the [Core Data Structures](https://github.com/GuildCrafts/we
 
 ## Installation and Setup
 
-_Fill this out_
+clone this repository locally
+run the following command to install any dependencies:
+"npm i"
+
+run the following command to run the tests 
+npm t
 
 ## Usage and Examples
 
-_...and this_
+
 git 
