@@ -16,4 +16,3 @@ Base repository for the [Core Data Structures](https://github.com/GuildCrafts/we
 ## Usage and Examples
 
 
-git 
