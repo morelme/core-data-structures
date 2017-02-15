@@ -8,7 +8,7 @@ export default class BinarySearchTree {
 
   insert = (value) => {
     const node = new BinaryNode(value)
-    if (this.count() == 0) {
+    if (this.count() === 0) {
       this.root = node
       this.length += 1
     }
@@ -16,7 +16,7 @@ export default class BinarySearchTree {
       let currentNode = this.root
       for(let i = 0; i < this.count(); i++){
         if(currentNode._value < node._value){
-          if(currentNode._rightChild == null){
+          if(currentNode._rightChild === null){
             currentNode._rightChild = node
             this.length += 1
             return
@@ -24,7 +24,7 @@ export default class BinarySearchTree {
           currentNode = this[i]._rightChild
         }
         if(currentNode._value > node._value){
-          if(currentNode._leftChild == null){
+          if(currentNode._leftChild === null){
             currentNode._leftChild = node
             this.length += 1
             return
@@ -41,7 +41,7 @@ export default class BinarySearchTree {
     }
     let currentNode = this.root
     for(let i = 0; i < this.count(); i++){
-      if(currentNode._value == value){
+      if(currentNode._value === value){
         return currentNode
       }
       if(currentNode._value < value){
@@ -66,7 +66,7 @@ export default class BinarySearchTree {
         this.length -= 1
         return
       }
-      else{
+      else {
         this.root._rightChild = null
         this.root = this.root._leftChild
         this.length -= 1

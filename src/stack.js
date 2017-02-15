@@ -5,7 +5,6 @@ export default class Stack {
   }
 
   push = (elementToAdd) => {
-    this.elementToAdd = elementToAdd
     this.size += 1
     this.elements.push(elementToAdd)
   }

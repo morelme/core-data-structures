@@ -4,4 +4,16 @@ export default class BinaryNode {
     this._rightChild = null
     this._leftChild = null
   }
+
+  getRightChild = () =>{
+    return this._rightChild
+  }
+
+  getLeftChild = () =>{
+    return this._leftChild
+  }
+
+  getValue = () => {
+    return this._value
+  }
 }
