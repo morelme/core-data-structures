@@ -53,19 +53,21 @@ describe('HashTable', () => {
     })
   })
 
-  context('iterate()', () => {
+  context.only('iterate()', () => {
     it('takes a callback function and passes it each key and value in sequence', () => {
-      const print = (key, value) => {
-        console.log("key: ", key)
-        console.log("value: ", value)
+
+      const addMomElement = element => {
+        myHashTable.put(element + 'mom')
       }
 
       myHashTable.put("name", "Zanzibar")
       myHashTable.put("food", "bagels")
-      //Not sure how to test this so we set up a test to make it fail on purpose
-      expect(myHashTable.iterate(print(key, value))).to.equal(true)
+      myHashTable.iterate(addMomElement)
+
+      expect(myHashTable.size()).to.equal(6)
     })
   })
+
   context('remove()', () => {
     it('removes a key-value pair by key', () => {
 
