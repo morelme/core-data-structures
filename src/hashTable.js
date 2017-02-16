@@ -1,44 +1,109 @@
+import HashNode from "./hashNode"
+
 export default class HashTable {
   constructor() {
-    this.storage = []
-    this._length = 0
+    this.headNodes = []
     this.max = 10
+    for (let i = 0; i < this.max; i++){
+      this.headNodes.push(null)
+    }
+    this._length = 0
   }
 
   put = (key, value) => {
     if(typeof(key) === "undefined"){
       throw("Cannot insert with undefined key!")
     }
+    const node = new HashNode(key, value)
     const hashIndex = this.hash(key)
-    this.storage[hashIndex] = value
+
+    if(this.headNodes[hashIndex] === null){
+      this.headNodes[hashIndex] = node
+    } else {
+      node.setNext(this.headNodes[hashIndex])
+      this.headNodes[hashIndex] = node
+    }
+
     this._length += 1
   }
 
   get = (key) => {
     const hashIndex = this.hash(key)
-    return this.storage[hashIndex]
+    let node = this.headNodes[hashIndex]
+    if(node.getKey() === key){
+      return node.getValue()
+    }
+    while (node.getNext() !== null)
+    {
+      if(node.getKey() == key){
+        return node.getValue()
+      }
+      node = node.getNext()
+    }
+    return "key not found"
   }
 
   contains = (key) => {
-    return this.get( key ) !== undefined
+    const hashIndex = this.hash(key)
+    let node = this.headNodes[hashIndex]
+    if(node === null){
+      return false
+    }
+    if(node.getKey() === key){
+      return true
+    }
+    while (node.getNext() !== null)
+    {
+      if(node.getKey() == key){
+        return true
+      }
+      node = node.getNext()
+    }
+    return false
   }
 
   iterate = passedInFunction => {
     for (let i = 0; i < this.max; i++){
-      if(this.storage[i] !== undefined){
-        //unhash key - create unhash function?
-        //passing it 1 as a placeholder to avoid compilation error
-        passedInFunction(/*unhashed key*/ 1, this.storage[i])
+      if(this.headNodes[i]!== null){
+        let currentNode = this.headNodes[i]
+        passedInFunction(currentNode.getKey(), currentNode.getValue())
+        while(currentNode.getNext() !== null){
+          passedInFunction(currentNode.getKey(), currentNode.getValue())
+          currentNode = currentNode.getNext()
+        }
       }
     }
   }
 
   remove = (key) => {
     const hashIndex = this.hash(key)
-    const value = this.storage[hashIndex]
-    this.storage.splice(hashIndex, 1)
-    this._length -= 1
+
+    if(this.headNodes[hashIndex].getKey() == key){
+      if(this.headNodes[hashIndex].getNext() === null){
+        this.headNodes[hashIndex] = null
+        this._length -= 1
+        return
+      } else {
+        const temp = this.headNodes[hashIndex].getNext()
+        this.headNodes[hashIndex].setNext(null)
+        this.headNodes[hashIndex] = temp
+        this._length -= 1
+        return
+      }
+    }
+    let currentNode = this.headNodes[hashIndex]
+    while(currentNode.getNext() != null){
+      if(currentNode.getNext().getKey() === key){
+        let temp = currentNode.getNext()
+        currentNode.setNext(currentNode.getNext().getNext())
+        temp.setNext(null)
+        this._length -= 1
+        return
+      }
+      currentNode = currentNode.getNext()
+    }
   }
+
 
   size = () => {
     return this._length
