@@ -24,18 +24,15 @@ import BinaryNode from './binarynode'
           currentNode.setLeftChild(newNode)
           this.length += 1
           break
-        }
-        else {
+        } else {
           currentNode = currentNode.getLeftChild()
         }
-      }
-      else {
+      } else {
         if(!currentNode.getRightChild()){
           currentNode.setRightChild(newNode)
           this.length += 1
           break
-        }
-        else {
+        } else {
           currentNode = currentNode.getRightChild()
         }
       }
@@ -72,8 +69,7 @@ import BinaryNode from './binarynode'
         this.root = null
         this.length -= 1
         return
-      }
-      else {
+      } else {
         this.root._rightChild = null
         this.root = this.root._leftChild
         this.length -= 1

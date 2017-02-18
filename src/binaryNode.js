@@ -5,27 +5,15 @@ export default class BinaryNode {
     this._leftChild = null
   }
 
-  getRightChild = () =>{
-    return this._rightChild
-  }
+  getRightChild = () => this._rightChild
 
-  setRightChild = (right) => {
-    this._rightChild = right
-  }
+  setRightChild = (right) => this._rightChild = right
 
-  getLeftChild = () =>{
-    return this._leftChild
-  }
+  getLeftChild = () => this._leftChild
 
-  setLeftChild = (left) => {
-    this._leftChild = left
-  }
+  setLeftChild = (left) => this._leftChild = left
 
-  getValue = () => {
-    return this._value
-  }
+  getValue = () => this._value
 
-  setValue = (value) => {
-    this._value = value
-  }
+  setValue = (value) => this._value = value
 }
