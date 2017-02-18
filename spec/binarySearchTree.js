@@ -78,7 +78,19 @@ describe('BinarySearchTree', () => {
   })
 
   context('traverse()', () => {
-    //What is this supposed to do/how do we test it?
+    it('traverse the tree in the defined order (preOrder, inOrder, or postOrder) and apply function on each node\'s value', () => {
+      const myFunction = element => {
+        myBST.remove(element)
+      }
+
+      myBST.insert(40)
+      myBST.insert(25)
+      myBST.insert(10)
+      myBST.insert(32)
+      myBST.insert(78)
+      myBST.traverse("preOrder", (val) => console.log(val))
+    })
+
 
   })
 
